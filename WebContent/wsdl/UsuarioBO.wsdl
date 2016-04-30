@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.fiap.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.fiap.com.br" xmlns:intf="http://services.fiap.com.br" xmlns:tns1="http://to.fiap.com.br" xmlns:tns2="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://services.fiap.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://to.fiap.com.br"/>
+   <import namespace="http://DefaultNamespace"/>
+   <element name="inserirUsuario">
+    <complexType>
+     <sequence>
+      <element name="usuarioTO" type="tns1:UsuarioTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="inserirUsuarioReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buscarUsuario">
+    <complexType>
+     <sequence>
+      <element name="codigo" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buscarUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="buscarUsuarioReturn" type="tns1:UsuarioTO"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://to.fiap.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://DefaultNamespace"/>
+   <complexType name="UsuarioTO">
+    <sequence>
+     <element name="codigo" type="xsd:int"/>
+     <element name="cpf" nillable="true" type="xsd:string"/>
+     <element name="dataNascimento" nillable="true" type="xsd:dateTime"/>
+     <element name="genero" type="xsd:anyType"/>
+     <element name="nome" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="inserirUsuarioRequest">
+
+      <wsdl:part element="impl:inserirUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirUsuarioResponse">
+
+      <wsdl:part element="impl:inserirUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarUsuarioResponse">
+
+      <wsdl:part element="impl:buscarUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarUsuarioRequest">
+
+      <wsdl:part element="impl:buscarUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="UsuarioBO">
+
+      <wsdl:operation name="inserirUsuario">
+
+         <wsdl:input message="impl:inserirUsuarioRequest" name="inserirUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inserirUsuarioResponse" name="inserirUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buscarUsuario">
+
+         <wsdl:input message="impl:buscarUsuarioRequest" name="buscarUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buscarUsuarioResponse" name="buscarUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UsuarioBOSoapBinding" type="impl:UsuarioBO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="inserirUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inserirUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inserirUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buscarUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buscarUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buscarUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UsuarioBOService">
+
+      <wsdl:port binding="impl:UsuarioBOSoapBinding" name="UsuarioBO">
+
+         <wsdlsoap:address location="http://localhost:8080/Trabalho/services/UsuarioBO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

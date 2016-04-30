@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import br.com.fiap.dao.impl.UsuarioDAOImpl;
 import br.com.fiap.entity.Usuario;
 import br.com.fiap.singleton.EMSingleton;
+import br.com.fiap.to.Genero;
 import br.com.fiap.to.UsuarioTO;
 
 public class UsuarioBO {
@@ -25,7 +26,8 @@ public class UsuarioBO {
 		usuarioTO.setCodigo(usuario.getCodigo());
 		usuarioTO.setCpf(usuario.getCpf());
 		usuarioTO.setDataNascimento(usuario.getDataNascimento());
-		usuarioTO.setGenero(usuario.getGenero());
+		if(usuario.getGenero() == Genero.MASCULINO){usuarioTO.setGenero('M');}
+		usuarioTO.setGenero('F');
 		usuarioTO.setNome(usuario.getNome());
 		
 		return usuarioTO;
@@ -37,10 +39,10 @@ public class UsuarioBO {
 		
 		Usuario usuario = new Usuario();
 		
-		usuario.setCodigo(usuarioTO.getCodigo());
 		usuario.setCpf(usuarioTO.getCpf());
 		usuario.setDataNascimento(usuarioTO.getDataNascimento());
-		usuario.setGenero(usuarioTO.getGenero());
+		if(usuarioTO.getGenero() == 'M'){usuario.setGenero(Genero.MASCULINO);}
+		usuario.setGenero(Genero.FEMININO);
 		usuario.setNome(usuarioTO.getNome());
 		
 		

@@ -7,7 +7,7 @@ public class UsuarioTO {
 	private String nome;
 	private Calendar dataNascimento;
 	private String cpf;
-	private Genero genero;
+	private char genero;
 	
 	public int getCodigo() {
 		return codigo;
@@ -41,11 +41,11 @@ public class UsuarioTO {
 		this.cpf = cpf;
 	}
 	
-	public Genero getGenero() {
+	public char getGenero() {
 		return genero;
 	}
 	
-	public void setGenero(Genero genero) {
+	public void setGenero(char genero) {
 		this.genero = genero;
 	}
 	

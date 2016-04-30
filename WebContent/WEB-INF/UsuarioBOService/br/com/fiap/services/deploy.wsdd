@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UsuarioBOService WSDL service -->
+
+  <service name="UsuarioBO" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://services.fiap.com.br"/>
+      <parameter name="wsdlServiceElement" value="UsuarioBOService"/>
+      <parameter name="schemaQualified" value="http://services.fiap.com.br,http://to.fiap.com.br"/>
+      <parameter name="wsdlServicePort" value="UsuarioBO"/>
+      <parameter name="className" value="br.com.fiap.services.UsuarioBO"/>
+      <parameter name="wsdlPortType" value="UsuarioBO"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://services.fiap.com.br" xmlns:retNS="http://services.fiap.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="inserirUsuario" qname="operNS:inserirUsuario" returnQName="retNS:inserirUsuarioReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://services.fiap.com.br" xmlns:tns="http://to.fiap.com.br" qname="pns:usuarioTO" type="tns:UsuarioTO"/>
+      </operation>
+      <operation xmlns:operNS="http://services.fiap.com.br" xmlns:retNS="http://services.fiap.com.br" xmlns:rtns="http://to.fiap.com.br" name="buscarUsuario" qname="operNS:buscarUsuario" returnQName="retNS:buscarUsuarioReturn" returnType="rtns:UsuarioTO" soapAction="">
+        <parameter xmlns:pns="http://services.fiap.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:codigo" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="buscarUsuario inserirUsuario"/>
+
+      <typeMapping xmlns:ns="http://to.fiap.com.br" qname="ns:UsuarioTO" type="java:br.com.fiap.to.UsuarioTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://services.fiap.com.br" qname="ns:&gt;inserirUsuarioResponse" type="java:br.com.fiap.services.InserirUsuarioResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://services.fiap.com.br" qname="ns:&gt;buscarUsuario" type="java:br.com.fiap.services.BuscarUsuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://services.fiap.com.br" qname="ns:&gt;buscarUsuarioResponse" type="java:br.com.fiap.services.BuscarUsuarioResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
