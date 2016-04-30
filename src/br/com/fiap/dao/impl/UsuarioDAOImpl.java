@@ -36,10 +36,10 @@ public class UsuarioDAOImpl extends DAOImpl<Usuario,Integer> implements UsuarioD
 	}
 
 	@Override
-	public Usuario buscarUsuario(int codigo) {
+	public Usuario buscarUsuario(String nome) {
 		TypedQuery<Usuario> query = em.createQuery(
-				"from Usuario u where c.codigo = :c",Usuario.class);
-			query.setParameter("c", codigo);
+				"from Usuario u where u.nome = :n", Usuario.class);
+			query.setParameter("n", nome);
 			return query.getSingleResult();
 	}
 

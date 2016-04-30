@@ -6,5 +6,5 @@ public interface UsuarioDAO extends DAO<Usuario,Integer>{
 	
 	public void inserir(Usuario usuario);
 	
-	public Usuario buscarUsuario(int codigo);
+	public Usuario buscarUsuario(String nome);
 }

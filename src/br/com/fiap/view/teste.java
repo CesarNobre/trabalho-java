@@ -18,7 +18,10 @@ public class teste {
 		usuarioTO.setGenero('M');
 		usuarioTO.setDataNascimento(new GregorianCalendar(1,1,89));
 		usuarioTO.setNome("Cesar2");
-		usuarioBO.inserirUsuario(usuarioTO);
+		
+		UsuarioTO cesar = new UsuarioTO();
+		cesar = usuarioBO.buscarUsuario("Cesar");
+		System.out.println(cesar.getNome());
 	}
 
 }

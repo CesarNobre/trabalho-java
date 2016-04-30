@@ -16,12 +16,12 @@ public class UsuarioBO {
 		
 	}
 	
-	public UsuarioTO buscarUsuario(int codigo){
+	public UsuarioTO buscarUsuario(String nome){
 		EntityManager em = EMSingleton.getInstance().createEntityManager();
 		this.usuarioDao = new UsuarioDAOImpl(em);
 		
 		UsuarioTO usuarioTO = new UsuarioTO();
-		Usuario usuario = this.usuarioDao.buscarUsuario(codigo);
+		Usuario usuario = this.usuarioDao.buscarUsuario(nome);
 		
 		usuarioTO.setCodigo(usuario.getCodigo());
 		usuarioTO.setCpf(usuario.getCpf());
