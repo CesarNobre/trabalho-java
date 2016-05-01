@@ -25,9 +25,9 @@ public class UsuarioBO {
 		
 		usuarioTO.setCodigo(usuario.getCodigo());
 		usuarioTO.setCpf(usuario.getCpf());
-		usuarioTO.setDataNascimento(usuario.getDataNascimento());
-		if(usuario.getGenero() == Genero.MASCULINO){usuarioTO.setGenero('M');}
-		usuarioTO.setGenero('F');
+		//usuarioTO.setDataNascimento(usuario.getDataNascimento());
+		//if(usuario.getGenero() == Genero.MASCULINO){usuarioTO.setGenero('M');}
+		//usuarioTO.setGenero('F');
 		usuarioTO.setNome(usuario.getNome());
 		
 		return usuarioTO;
@@ -40,8 +40,8 @@ public class UsuarioBO {
 		Usuario usuario = new Usuario();
 		
 		usuario.setCpf(usuarioTO.getCpf());
-		usuario.setDataNascimento(usuarioTO.getDataNascimento());
-		if(usuarioTO.getGenero() == 'M'){usuario.setGenero(Genero.MASCULINO);}
+		//usuario.setDataNascimento(usuarioTO.getDataNascimento());
+		//if(usuarioTO.getGenero() == 'M'){usuario.setGenero(Genero.MASCULINO);}
 		usuario.setGenero(Genero.FEMININO);
 		usuario.setNome(usuarioTO.getNome());
 		

@@ -15,8 +15,8 @@ public class teste {
 		UsuarioTO usuarioTO = new UsuarioTO();
 		
 		usuarioTO.setCpf("123");
-		usuarioTO.setGenero('M');
-		usuarioTO.setDataNascimento(new GregorianCalendar(1,1,89));
+		//usuarioTO.setGenero('M');
+		//usuarioTO.setDataNascimento(new GregorianCalendar(1,1,89));
 		usuarioTO.setNome("Cesar2");
 		
 		UsuarioTO cesar = new UsuarioTO();
