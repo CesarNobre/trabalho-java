@@ -5,10 +5,17 @@ import java.util.Calendar;
 public class UsuarioTO {
 	private int codigo;
 	private String nome;
-	
 	private String cpf;
+	private String genero;
 	
-	
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
